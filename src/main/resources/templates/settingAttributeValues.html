@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+
+</head>
+<body>
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <div class="container-fluid">
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav">
+                <li class="nav-item">
+                    <a class="btn btn-outline-primary" aria-current="page"  th:href="@{thymeleaf}">Thymeleaf</a>
+                </li>
+                <li class="nav-item">
+                    <a class="btn btn-outline-primary" th:href="@{standardExpressionSyntax}">standardExpressionSyntax</a>
+                </li>
+                <li class="nav-item">
+                    <a class="btn btn-outline-primary" th:href="@{settingAttributeValues}">Setting Attribute Values</a>
+                </li>
+                <li class="nav-item">
+                    <a class="btn btn-outline-primary" th:href="@{interation}">Iteration</a>
+                </li>
+                <li class="nav-item">
+                    <a class="btn btn-outline-primary" th:href="@{conditionalEvaluation}">Conditional Evaluation</a>
+                </li>
+                <li class="nav-item">
+                    <a class="btn btn-outline-primary" th:href="@{localVariables}">Local Variables</a>
+                </li>
+                <li class="nav-item">
+                    <a class="btn btn-outline-primary" th:href="@{commentsAndBlocks}">Comments and Blocks</a>
+                </li>
+                <li class="nav-item">
+                    <a class="btn btn-outline-primary" th:href="@{inlining}">Inlining</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</nav>
+<h1>Đây là form</h1>
+<h1>Infos</h1>
+<table border="1">
+    <tr>
+        <th>Key</th>
+        <th>Value</th>
+    </tr>
+  <tr th:each="infoss : ${infos}">
+        <td th:text="${infoss.key}"></td>
+        <td th:text="${infoss.value}"></td>
+    </tr>
+</table>
+<a href="/infos/new">Create Info</a>
+</form>
+
+</body>
+</html>
