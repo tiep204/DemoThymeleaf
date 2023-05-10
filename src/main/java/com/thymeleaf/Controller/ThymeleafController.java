@@ -8,26 +8,32 @@ import org.springframework.web.bind.annotation.*;
 import java.util.ArrayList;
 import java.util.List;
 
+import static com.sun.org.apache.xalan.internal.xsltc.compiler.sym.error;
+
 @Controller
 public class ThymeleafController {
     private static List<Info> infos = new ArrayList<>();
     @GetMapping
     public String thymeLeaf() {
-            return "index";
+            return "thymeleaf";
     }
-    @GetMapping("thymeleaf")
-        public String thymeleaf(){
-        return "thymeleaf";
-    }
+
     @GetMapping("standardExpressionSyntax")
     public String standarExpressionSyntax(Model model){
         Info info = new Info("tuoi:","12");
         model.addAttribute("file",info);
         return "standardExpressionSyntax";
     }
-
     @PostMapping("create")
-    public String createForm(@ModelAttribute("info") Info info,Model model){
+    public String createForm(@ModelAttribute Info info,Model model){
+        if (!info.getKey().contains("Lớp")){
+            model.addAttribute("error","Key phải chứa chữ: Lớp");
+           return "createForm";
+        }
+        if (!info.getValue().contains("123")) {
+            model.addAttribute("mess", "Trong value phải có số 123");
+            return "createForm";
+        }
         infos.add(info);
         model.addAttribute("infos",infos);
         return "settingAttributeValues";
@@ -41,10 +47,11 @@ public class ThymeleafController {
     @GetMapping("/infos/new")
     public String showCreateForm(Model model) {
         model.addAttribute("info", new Info());
+//        model.addAttribute("error", "");
         return "createForm";
     }
 
-    @GetMapping("interation")
+    @GetMapping("interration")
     public String interation(Model model){
         List<Info> profile = new ArrayList<>();
         profile.add(new Info("fullname", "Dinh Zuan Loc"));

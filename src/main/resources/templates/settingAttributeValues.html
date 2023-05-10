@@ -7,45 +7,53 @@
 
 </head>
 <body>
-<nav class="navbar navbar-expand-lg navbar-light bg-light">
-    <div class="container-fluid">
-        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse" id="navbarNav">
-            <ul class="navbar-nav">
-                <li class="nav-item">
-                    <a class="btn btn-outline-primary" aria-current="page"  th:href="@{thymeleaf}">Thymeleaf</a>
-                </li>
-                <li class="nav-item">
-                    <a class="btn btn-outline-primary" th:href="@{standardExpressionSyntax}">standardExpressionSyntax</a>
-                </li>
-                <li class="nav-item">
-                    <a class="btn btn-outline-primary" th:href="@{settingAttributeValues}">Setting Attribute Values</a>
-                </li>
-                <li class="nav-item">
-                    <a class="btn btn-outline-primary" th:href="@{interation}">Iteration</a>
-                </li>
-                <li class="nav-item">
-                    <a class="btn btn-outline-primary" th:href="@{conditionalEvaluation}">Conditional Evaluation</a>
-                </li>
-                <li class="nav-item">
-                    <a class="btn btn-outline-primary" th:href="@{localVariables}">Local Variables</a>
-                </li>
-                <li class="nav-item">
-                    <a class="btn btn-outline-primary" th:href="@{commentsAndBlocks}">Comments and Blocks</a>
-                </li>
-                <li class="nav-item">
-                    <a class="btn btn-outline-primary" th:href="@{inlining}">Inlining</a>
-                </li>
-            </ul>
-        </div>
-    </div>
-</nav>
+<th:block th:replace="navBar.html::navbar"></th:block>
 <h1>Đây là form</h1>
-<h1>Infos</h1>
-<table border="1">
+<style>
+    h1{
+        text-align: center;
+    }
+    table {
+        border-collapse: collapse;
+        width: 100%;
+        max-width: 800px;
+        margin: auto;
+    }
+
+    th, td {
+        border: 1px solid black;
+        padding: 8px;
+        text-align: left;
+    }
+
+    th {
+        background-color: #ddd;
+        font-weight: bold;
+    }
+
+    tr:nth-child(even) {
+        background-color: #f2f2f2;
+    }
+
+    .thea {
+        display: block;
+        width: 120px;
+        padding: 10px;
+        margin: 20px auto;
+        text-align: center;
+        background-color: #4CAF50;
+        color: white;
+        text-decoration: none;
+        border-radius: 4px;
+    }
+    th{
+        text-align: center;
+    }
+
+</style>
+<table>
     <tr>
+
         <th>Key</th>
         <th>Value</th>
     </tr>
@@ -54,7 +62,7 @@
         <td th:text="${infoss.value}"></td>
     </tr>
 </table>
-<a href="/infos/new">Create Info</a>
+<a th:class="thea" href="/infos/new">Create Info</a>
 </form>
 
 </body>
