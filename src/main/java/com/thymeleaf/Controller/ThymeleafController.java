@@ -83,9 +83,15 @@ public class ThymeleafController {
 
 
 
-    @GetMapping("/inlining")
+    @GetMapping("inlining")
     public String profile(Model model){
-        return "inlining";
+        model.addAttribute("h1","center");
+        model.addAttribute("h2","red");
+        model.addAttribute("js","day la nhung html");
+
+
+
+        return "inliningg";
     }
 
 }
