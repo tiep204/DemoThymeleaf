@@ -88,9 +88,6 @@ public class ThymeleafController {
         model.addAttribute("h1","center");
         model.addAttribute("h2","red");
         model.addAttribute("js","day la nhung html");
-
-
-
         return "inliningg";
     }
 
